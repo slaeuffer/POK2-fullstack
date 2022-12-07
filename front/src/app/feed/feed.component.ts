@@ -3,10 +3,7 @@ import { tap } from 'rxjs';
 import { Music } from '../models/music.model';
 import { MusicService } from '../services/music.service';
 import { DialogAddMusicComponent } from '../dialog-add-music/dialog-add-music.component';
-import { MatDialog } from '@angular/material/dialog'; 
-
-
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',

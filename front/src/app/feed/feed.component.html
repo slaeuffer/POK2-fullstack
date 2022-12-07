@@ -1,0 +1,22 @@
+<div class="example-button-container">
+  <button mat-fab color="primary" aria-label="Ajouter une nouvelle musique" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<ng-container *ngFor="let music of musics">
+  <mat-card class="example-card my-4">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{music.title}}</mat-card-title>
+      <mat-card-subtitle>{{music.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="music.imageUrl">
+    <mat-card-content>
+      <p>Description</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">{{music.likes}}</button>
+      <button mat-raised-button color="warn">{{music.dislikes}}</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
