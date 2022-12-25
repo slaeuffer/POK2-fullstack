@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogAddMusicComponent } from './dialog-add-music/dialog-add-music.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DialogAddMusicComponent } from './dialog-add-music/dialog-add-music.com
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
