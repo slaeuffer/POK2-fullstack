@@ -7,6 +7,7 @@ import { Music } from "../models/music.model";
     providedIn: 'root'
 })
 export class MusicService {
+    
     configUrl = environment.apiUrl;
 
     constructor(
@@ -16,5 +17,10 @@ export class MusicService {
     getMusics() {
         const route = `http://localhost:3000/api/musics`;
         return this.http.get<Music[]>(route);
+    }
+
+    addMusic(newMusic: any) {
+        const route = `http://localhost:3000/api/musics`;
+        this.http.post(route, newMusic);
     }
 }

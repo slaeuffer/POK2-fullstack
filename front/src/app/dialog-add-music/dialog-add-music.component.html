@@ -1,21 +1,26 @@
-<div>
+<form [formGroup]="addMusicForm">
     <mat-form-field appearance="fill">
         <mat-label>Titre</mat-label>
-        <input matInput>
+        <input matInput formControlName="title">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Auteur</mat-label>
-        <input matInput>
+        <input matInput formControlName="author">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Genre</mat-label>
-        <mat-select>
-            <mat-option value="one">Rap</mat-option>
-            <mat-option value="two">Rock</mat-option>
-            <mat-option value="two">Funk</mat-option>
+        <mat-select formControlName="genre">
+            <mat-option value="Rap">Rap</mat-option>
+            <mat-option value="Rock">Rock</mat-option>
+            <mat-option value="Funk">Funk</mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-raised-button color="primary">
+    <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">
         Ajouter
     </button>
+</form>
+<div *ngIf="newMusicPreview$ | async as music">
+    <h2>{{ music.title | uppercase }}</h2>
+    <p>{{ music.author }}</p>
+    <p>{{ music.genre }}</p>
 </div>
