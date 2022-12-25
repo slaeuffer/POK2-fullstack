@@ -1,9 +1,20 @@
 
-const express = require('express');
+
+import express, { json } from 'express';
 
 const app = express();
+import { psw } from '../psw.js';
+import { mongoose } from 'mongoose';
 
-app.use(express.json());
+mongoose.set('strictQuery', false);
+
+mongoose.connect('mongodb+srv://antoine:'+ psw.mongodb +'@pok2cluster.vn2uk2a.mongodb.net/?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+app.use(json());
 
 app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Origin', '*');
@@ -50,4 +61,4 @@ app.get('/api/musics', (req, res, next) => {
    res.status(200).json(stuff);
  });
 
-module.exports = app;
+export default app;
