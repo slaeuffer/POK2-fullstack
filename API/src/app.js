@@ -3,12 +3,11 @@
 import express, { json } from 'express';
 
 const app = express();
-import { psw } from '../psw.js';
 import { mongoose } from 'mongoose';
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb+srv://antoine:'+ psw.mongodb +'@pok2cluster.vn2uk2a.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://antoine:antoine@pok2cluster.vn2uk2a.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
