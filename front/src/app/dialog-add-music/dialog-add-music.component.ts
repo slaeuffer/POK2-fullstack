@@ -24,12 +24,12 @@ export class DialogAddMusicComponent implements OnInit {
       title: [null, Validators.required],
       author: [null, Validators.required],
       genre: [null, Validators.required],
+      description: [null, Validators.required]
     });
     this.newMusicPreview$ = this.addMusicForm.valueChanges;
   }
 
   onSubmit(){
-    console.log("aea");
     this.musicService.addMusic(this.addMusicForm.value);
   }
 

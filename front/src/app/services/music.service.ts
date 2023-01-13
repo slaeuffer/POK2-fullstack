@@ -19,8 +19,8 @@ export class MusicService {
         return this.http.get<Music[]>(route);
     }
 
-    addMusic(newMusic: any) {
-        const route = `http://localhost:3000/api/musics`;
-        this.http.post(route, newMusic);
+    addMusic(newMusic: Partial<Music>) {
+        const route = `http://localhost:3000/api/newMusic`;
+        return this.http.post<any>(route, newMusic).subscribe(data => console.log(data));
     }
 }
