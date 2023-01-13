@@ -15,6 +15,10 @@
             <mat-option value="Funk">Funk</mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+    </mat-form-field>
     <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">
         Ajouter
     </button>
@@ -23,4 +27,5 @@
     <h2>{{ music.title | uppercase }}</h2>
     <p>{{ music.author }}</p>
     <p>{{ music.genre }}</p>
+    <p>{{ music.description}}</p>
 </div>

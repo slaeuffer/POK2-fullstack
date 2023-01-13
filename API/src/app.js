@@ -22,42 +22,59 @@ app.use((req, res, next) => {
    next();
  });
 
+ const musicSchema = mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  author: {
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  likes: {
+    type: Number,
+    required: true
+  },
+  dislikes: {
+    type: Number,
+    required: true
+  },
+  imageUrl : {
+    type: String,
+    required: true
+  }
+});
+
+const Music = mongoose.model('Music', musicSchema);
+
 app.get('/api/musics', (req, res, next) => {
-   const stuff = [
-     {
-      id: 1,
-      author: 'Justin Timberlake',
-      title: 'Cry Me A River',
-      likes: 2,
-      dislikes: 3,
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-     },
-     {
-      id: 2,
-      author: 'Queen',
-      title: 'Bohemian Rhapsody',
-      likes: 22,
-      dislikes: 3,
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-     },
-     {
-      id: 3,
-      author: 'Michael Jackson',
-      title: 'Billie Jean',
-      likes: 22,
-      dislikes: 3,
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-     },
-     {
-      id: 4,
-      author: 'Whitney Houston',
-      title: 'I Will Always Love You',
-      likes: 22,
-      dislikes: 3,
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-     },
-   ];
-   res.status(200).json(stuff);
+  Music.find({}, function(err, items){
+    if (err) throw err;
+    res.status(200).json(items);
+  })
  });
+
+app.post('/api/newMusic', function(req, res){
+  const music = new Music({
+    "title": req.body.title, 
+    "author": req.body.author, 
+    "genre": req.body.genre,
+    "description": req.body.description,
+    "likes": 0,
+    "dislikes": 0,
+    "imageUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg"
+  });
+  music.save( function(err) {
+    if (err) throw err
+  });
+});
 
 export default app;
