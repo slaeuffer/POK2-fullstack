@@ -15,8 +15,8 @@
       <p>{{music.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary">{{music.likes}}</button>
-      <button mat-raised-button color="warn">{{music.dislikes}}</button>
+      <button mat-raised-button color="primary" (click)="addLike()">{{music.likes}}</button>
+      <button mat-raised-button color="warn" (click)="addDislike()">{{music.dislikes}}</button>
     </mat-card-actions>
   </mat-card>
 </ng-container>

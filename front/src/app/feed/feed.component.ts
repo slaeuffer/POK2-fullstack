@@ -27,6 +27,13 @@ export class FeedComponent implements OnInit {
     this.dialog.open(DialogAddMusicComponent, {
       width: '350px',
     });
+  }
 
+  addLike(){
+    this.musicService.addLike()
+  }
+
+  addDislike(){
+    this.musicService.addDislike()
   }
 }

@@ -23,4 +23,12 @@ export class MusicService {
         const route = `http://localhost:3000/api/newMusic`;
         return this.http.post<any>(route, newMusic).subscribe(data => console.log(data));
     }
+
+    addLike(){
+
+    }
+
+    addDislike(){
+        
+    }
 }
