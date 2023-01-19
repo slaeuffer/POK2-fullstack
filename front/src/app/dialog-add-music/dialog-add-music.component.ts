@@ -12,7 +12,7 @@ export class DialogAddMusicComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private musicService: MusicService
+    private musicService: MusicService,
   ) { }
 
   addMusicForm!: FormGroup;
@@ -30,7 +30,14 @@ export class DialogAddMusicComponent implements OnInit {
   }
 
   onSubmit(){
-    this.musicService.addMusic(this.addMusicForm.value);
+    this.musicService.addMusic(this.addMusicForm.value).subscribe(
+      data => {
+        console.log(data)
+      },
+      err => {
+        console.log('HTTP Error', err);
+      }
+    )
   }
 
 }
