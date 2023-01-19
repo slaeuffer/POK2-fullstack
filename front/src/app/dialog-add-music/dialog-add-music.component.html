@@ -23,6 +23,8 @@
         Ajouter
     </button>
 </form>
+<button mat-raised-button color="warn">Ajouter avec Youtube</button>
+<app-search-container></app-search-container>
 <div *ngIf="newMusicPreview$ | async as music">
     <h2>{{ music.title | uppercase }}</h2>
     <p>{{ music.author }}</p>
