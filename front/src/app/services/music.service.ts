@@ -24,11 +24,14 @@ export class MusicService {
         return this.http.post<any>(route, newMusic).subscribe(data => console.log(data));
     }
 
-    addLike(){
-
+    addLike(musicId: string){
+        const route = `http://localhost:3000/api/newLike`;
+        console.log('servivce')
+        return this.http.put<any>(route, musicId);
     }
 
-    addDislike(){
-        
+    addDislike(musicId: string){
+        const route = `http://localhost:3000/api/newDislike}`;
+        return this.http.post<any>(route, musicId);
     }
 }

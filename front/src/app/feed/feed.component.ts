@@ -29,11 +29,4 @@ export class FeedComponent implements OnInit {
     });
   }
 
-  addLike(){
-    this.musicService.addLike()
-  }
-
-  addDislike(){
-    this.musicService.addDislike()
-  }
 }

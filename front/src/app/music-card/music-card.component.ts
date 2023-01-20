@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Music } from '../models/music.model';
+import { MusicService } from '../services/music.service';
 
 @Component({
   selector: 'app-music-card',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() music: Music;
+
+  constructor(
+    private musicService: MusicService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  addLike(){
+    this.musicService.addLike(this.music?._id);
+  }
+
+  addDislike(){
+    this.musicService.addDislike(this.music?._id)
   }
 
 }
