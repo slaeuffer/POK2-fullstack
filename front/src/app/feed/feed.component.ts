@@ -25,8 +25,8 @@ export class FeedComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(DialogAddMusicComponent, {
-      width: '350px',
+      width: '550px',
     });
-
   }
+
 }
